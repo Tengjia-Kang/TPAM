@@ -1,0 +1,44 @@
+#General Info
+gpu_to_use: -1 # -1 if we want to use all the GPUS
+use_prev_model: True
+description: "MeshCNN predict vector imitating network training on shrec16"
+beyesican_dnn_training: True
+train_use_pred_vector : True
+dataset_path: 'datasets/datasets_processed/shrec16_with_MeshCNN_pred'
+prev_model : 'trained_models/Ours/shrec11/MeshCNN/0017-22.04.2024..03.27__shrec11_'
+max_batch_size : 32
+use_Cupy : Ture
+walk_len_training : 200
+
+network_arch : "RnnWalkNet"              #'RnnWalkNet'
+# attack params
+num_walks_per_iter: 8
+# 'WALKER', 'MESHCNN', 'PDMESHNET', 'MESHNET'
+arch: 'WALKER'
+# 'SHREC11', 'MODELNET40'
+dataset: 'SHREC11'
+how_much_epoch_to_test_acc : 1
+dump_timings: False
+x_server_exists: True
+# Manifold params
+#'sparse_only' #'manifold_only' #'both'
+sparse_or_manifold: 'manifold_only'
+non_zero_ratio: 2
+# Deform Training params
+max_label_diff: 0.001     #如果 source_pred_abs_diff 大于 config['max_label_diff']，则认为攻击不成功。
+pred_close_enough_to_target: 0.9
+iter_2_change_weight: 1_000
+show_model_every: 100_001
+# logger options
+#image_save_iter:  100         # How often do you want to save output images during training
+plot_iter: 10
+image_display_iter: 100       # How often do you want to display output images during training
+display_size: 15              # How many images do you want to display each time
+snapshot_save_iter: 10_000    # How often do you want to save trained models
+log_iter: 1                   # How often do you want to log the training stats
+job: 'shrec11'   #'shrec11' #'mesh_net'
+job_part: ''      #'16_4'
+# choose network task from: 'features_extraction', 'unsupervised_classification', 'semantic_segmentation', 'classification', 'manifold_classification'.
+network_task: 'classification'
+trained_only_2_classes: False
+train_several_classes: False

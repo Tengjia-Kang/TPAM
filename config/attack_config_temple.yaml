@@ -1,0 +1,57 @@
+#General Info
+gpu_to_use: -1 # -1 if we want to use all the GPUS
+use_Cupy : Ture
+
+L2_bound : [  0.001, 0.002, 0.003, 0.004, 0.005,
+              0.006, 0.007, 0.008, 0.009, 0.010,
+              0.011, 0.012, 0.013, 0.014, 0.015,
+              0.016, 0.017, 0.018, 0.019, 0.020,
+              0.021, 0.022, 0.023, 0.024, 0.025,
+              0.026, 0.027, 0.028, 0.029, 0.030]
+
+# attack params
+arch: 'WALKER'  # 'WALKER', 'MESHCNN', 'PDMESHNET', 'MESHNET'
+dataset: 'SHREC11' # 'SHREC11', 'MODELNET40'
+dataset_to_be_attack : 'datasets/datasets_processed/shrec16_f500/test/'
+path_to_save_attack_results: 'attack_results/MeshCNN/Norm_MeshCNN_Surrogate_IterOpti_Beayes_attack'
+network_arch : "RnnMixtureNet"  #'RnnWalkNet', "RnnMixtureNet"
+trained_model: 'trained_models/BeayesianMeshWalker/shrec11/MeshCNN/best'
+walk_len: 200
+num_walks_per_iter: 8
+max_iter: 10000
+use_last: True   #If the output path already exists and the use_last == False,
+                # the code will delete the files and folders under this path to prepare for receiving new results.
+K : 8
+regularization_loss_weights : {'W_normal': 1}
+attacking_weight: 0.001
+thre_loss_weight: 0.001
+perceptual_attacking_weights_lr : 3000
+image_save_iter:  100         # How often do you want to save output images during training
+use_momentum_gradient: False
+use_guassican_noise: False
+decay_factor: 1
+how_much_epoch_to_test_acc : 1
+dump_timings: False
+x_server_exists: True
+# Manifold params
+#'sparse_only' #'manifold_only' #'both'
+sparse_or_manifold: 'manifold_only'
+non_zero_ratio: 2
+# Deform Training params
+max_label_diff: 0.001     #if source_pred_abs_diff > config['max_label_diff'], is considered too large.
+pred_close_enough_to_target: 0.9
+iter_2_change_weight: 1_000
+show_model_every: 100_001
+# logger options
+
+plot_iter: 10
+image_display_iter: 100       # How often do you want to display output images during training
+display_size: 15              # How many images do you want to display each time
+snapshot_save_iter: 10_000    # How often do you want to save trained models
+log_iter: 1                   # How often do you want to log the training stats
+job: 'manifold40' #'shrec11' #'mesh_net'
+job_part: '' #'16_4'
+# choose network task from: 'features_extraction', 'unsupervised_classification', 'semantic_segmentation', 'classification', 'manifold_classification'.
+network_task: 'classification'
+trained_only_2_classes: False
+train_several_classes: False
