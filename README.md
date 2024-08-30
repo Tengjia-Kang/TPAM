@@ -66,7 +66,7 @@ python attack/attack_mesh.py
 ```
 
 # Questions / Issues
-If you have any questions or issues running this code, please open an issue so we can know to fix it, or send a email to author.
+If you have any questions or issues running this code, please open an issue so we can know to fix it, or send an email to author.
 
 # Acknowledgments
 This code design was adopted from [Random-Walks-for-Adversarial-Meshes
