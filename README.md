@@ -1,10 +1,23 @@
+# TPAM in TensorFlow
+### Pacific Graphics 2024
+Transferable Perceptual-constrained Adversarial Meshes (TPAM) is a method for generating adversarial meshes that disrupt the predictions of mesh classification networks, ensuring stealthiness, and possessing transferability to various mesh classifiers.![](https://tengjia-kang-research.oss-cn-beijing.aliyuncs.com/TPAM/figs/geometry_details_v2.png)
+
 # Getting Started
-
 ### Installation
+- Clone this repository:
+```bash
+git clone https://github.com/Tengjia-Kang/TPAM.git
+cd TPAM
+```
+-  Create a virtual environment.
 
+```bash
+conda create -n TPAM python=3.8
+conda activate TPAM
+pip install -r requirements.txt
+```
 
-
-# Pipeline
+### Pipeline
 
 Our attack is in a black setting, it could be divided into two part in our pipeline.
 
@@ -12,13 +25,50 @@ Firstly, training a surrogate network for the target victim classifier.
 
 Secondly, attack surrogate network to obtain adversarial meshes that could transfer attack target models.
 
-# Surrogate network train
+### Data
 
-Training the surrogate network requires using the same version of the dataset as the target network and the corresponding ground truth. The predictions obtained by querying the target network can be used as the ground truth, and the KL divergence is selected as the training loss accordingly. If using the true categories of the mesh as the ground truth (gt), it is recommended to convert the labels into one-hot vectors and use KL divergence as the loss, or use cross-entropy loss. For query-based attacks, you need to obtain the logits for the relevant dataset from the target network, which requires your own implementation in their envs or you can use the output-logits script in our fork version.
+#### Raw datasets
 
+The datasets we use are consistent with the datasets used in the mesh classification we aim to attack.
 
+To get the raw datasets go to the relevant website.
 
+[MeshCNN]: https://github.com/ranahanocka/MeshCNN.git
+[MeshNet]: https://github.com/iMoonLab/MeshNet.git
+[PD-MeshNet]: https://github.com/MIT-SPARK/PD-MeshNet.git
+[MeshWalker]: https://github.com/AlonLahav/MeshWalker.git
+[RIMeshGNN]: https://github.com/BSResearch/RIMeshGNN.git
+[SubdivNet]: https://github.com/Tengjia-Kang/SubdivNet.git
+[ExMeshCNN]: https://github.com/gyeomo/ExMeshCNN.git
 
+#### Processed datasets
 
-## Attack
+Organize the dataset with the predict logits from the target classifier.
+
+```sh
+python data/dataset_prepare.py shrec11
+```
+
+The predictions obtained by querying the target network. For different attack targets, you may need to implement different scripts, you can refer to the fork version in my repositories.
+
+### Surrogate network train
+
+train a surrogate network for target.
+
+```sh
+python surrogate_train/imitating_network_train.py
+```
+
+### Attack
+
+```sh
+python attack/attack_mesh.py
+```
+
+# Questions / Issues
+If you have any questions or issues running this code, please open an issue so we can know to fix it, or send a email to author.
+
+# Acknowledgments
+This code design was adopted from [Random-Walks-for-Adversarial-Meshes
+Public](https://github.com/amirbelder/Random-Walks-for-Adversarial-Meshes.git).
 
