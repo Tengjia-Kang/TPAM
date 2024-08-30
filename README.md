@@ -33,13 +33,13 @@ The datasets we use are consistent with the datasets used in the mesh classifica
 
 To get the raw datasets go to the relevant website.
 
-[MeshCNN]: https://github.com/ranahanocka/MeshCNN.git
-[MeshNet]: https://github.com/iMoonLab/MeshNet.git
-[PD-MeshNet]: https://github.com/MIT-SPARK/PD-MeshNet.git
-[MeshWalker]: https://github.com/AlonLahav/MeshWalker.git
-[RIMeshGNN]: https://github.com/BSResearch/RIMeshGNN.git
-[SubdivNet]: https://github.com/Tengjia-Kang/SubdivNet.git
-[ExMeshCNN]: https://github.com/gyeomo/ExMeshCNN.git
+[MeshCNN](https://github.com/ranahanocka/MeshCNN.git)
+[MeshNet](https://github.com/iMoonLab/MeshNet.git)
+[PD-MeshNet](https://github.com/MIT-SPARK/PD-MeshNet.git)
+[MeshWalker](https://github.com/AlonLahav/MeshWalker.git)
+[RIMeshGNN](https://github.com/BSResearch/RIMeshGNN.git)
+[SubdivNet](https://github.com/Tengjia-Kang/SubdivNet.git)
+[ExMeshCNN](https://github.com/gyeomo/ExMeshCNN.git)
 
 #### Processed datasets
 
