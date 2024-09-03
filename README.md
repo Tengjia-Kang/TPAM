@@ -72,3 +72,16 @@ If you have any questions or issues running this code, please open an issue so w
 This code design was adopted from [Random-Walks-for-Adversarial-Meshes
 Public](https://github.com/amirbelder/Random-Walks-for-Adversarial-Meshes.git).
 
+# Citation
+If you find our TPAM method is useful to your research, please cite it as follows:
+```
+@inproceedings{kang2024tpam,
+  title={TPAM: Transferable Perceptual-constrained Adversarial Meshes},
+  author={Kang, Tengjia and Li, Yuezun and Zhou, Jiaran and Xin, Shiqing and Dong, Junyu and Tu, Changhe},
+  booktitle={Proceedings of Pacific Conference on Computer Graphics and Applications},
+  year={2024},
+  organization={Eurographics association}
+}
+```
+
+
